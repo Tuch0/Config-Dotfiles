@@ -1,1 +1,1 @@
-# auto-pentest-workspace
+# bspqm-dotfiles
