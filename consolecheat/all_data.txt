@@ -1,0 +1,257 @@
+# Apuntes Linux Essentials
+
+:S.GOBUSTER
+| Comando                                                      | Significado                                                        |
+| ------------------------------------------------------------ | ------------------------------------------------------------------ |
+| gobuster dns -u google.es -w /usr/share/wordlists/common.txt | Dns indica que queremos fuzzear los subdominios de la url indicada |
+| gobuster dir -u \<url\> -w \<diccionario\>                   | Dir indica que queremos fuzzear directorios                        |
+| gobuster dir -u \<url\> -w \<diccionario\> -t 200            | -t indica la cantidad de hilos que deseamos usar                   |
+| gobuster dir -c -u \<url\> -w \<diccionario\>                | -c indica que lo queremos en formato colorizado                    |
+:S.GOBUSTER
+
+
+
+:S.LISTA
+1. Esto es una lista de prueba
+2. Esto sigue siendo otra liena de prueba para ver como se ve
+
+> Por ultimo vamos a ver como se representa todo esto por terminal de manera que vamos aver si renta mas una tabla o una lista a la hora de representar los ddatos por termnal lav erdad es que si me gusta esta herramietna
+:S.LISTA
+
+
+:S.REDIRECCIONES
+## Simbolos
+| Simbolo | InformaciÃ³n                                                                                 |
+| ------- | ------------------------------------------------------------------------------------------- |
+| >       | Sirve para redirigir la salida estandar                                                     |
+| 2>      | Sirve para redirigir la saldia de error                                                     |
+| >>      | Sirve para agregar nueva informaciÃ³n al final del fichero                                   |
+| <       | Sirve para pasar datos a un comando desde un fichero especifico                             |
+| \|      | Se usa principalmente para almacenar el resulatdo de un comando para ser procesado por otro |
+:S.REDIRECCIONES
+
+:S.REGEX
+## Expresiones Iregulares (regex)
+| Meta-Caracter | Utilidad                                                                     |     |
+| ------------- | ---------------------------------------------------------------------------- | --- |
+| (\.)          | Encuentra cualquier caracter individual (Exveptuando saltos de lÃ­nea)        |     |
+| [abcABC]      | Encuentra cualquiera de los caracteres eliminar entre corchetes              |     |
+| [_^abcABC_]   | Encuentra cualquiera de los caracteres que no estÃ© entre corchetes           |     |
+| [a-z]         | Encuentra cualquier caracter que estÃ© en el rango                            |     |
+| [ ^abcABC ]   | Encuentra cualquier caracter que no estÃ© en el rango                         |     |
+| ^             | Inicio de una lÃ­nea                                                          |     |
+| $             | Fin de la lÃ­nea                                                              |     |
+| *             | Todos los carÃ¡cteres                                                         |     |
+| {\<number\>}  | Sirve para indicar un nÃºmero especifico de veces (grep -E '[0-9]{3}' passwd) |     |
+|               |                                                                              |     |
+:S.REGEX
+
+:S.OPERADORES
+## ComparaciÃ³n NumÃ©rica
+| Expresion | Significado         | TraducciÃ³n        |
+| --------- | ------------------- | ----------------- |
+| -ne       | No igual a          | Not Equal         |
+| -gt       | Mayor que           | Greather than     |
+| -ge       | Mayor que o igual a | Greather or equal |
+| -lt       | Menos que           | Low than          |
+| -le       | Menor o igual a     | Less or equal     | 
+:S.OPERADORES
+
+:S.VARIABLES
+## Variables
+| Variable | Utilidad                                     |
+| -------- | -------------------------------------------- |
+| $#       | Contiente el nÃºmero de argumentos            |
+| $?       | Contiente el cÃ³digo de estado                |
+| $@       | Contiene todos los valores de los argumentos |
+:S.VARIABLES
+
+:S.CANALES
+## Canales shell
+| Nombre | Utilidad                                             |
+| ------ | ---------------------------------------------------- |
+| stdout | NÃºmero de el canal 1 , salida de el comando          |
+| stderr | NÃºmero de el canal 2 , error de el comando ejecutado |
+| stdin  | Comando escrito manualmente (input)                  | 
+:S.CANALES
+
+
+## Notas 
+| Comando / Nombre / Utilidad | Explicacion                                                                                                                                     |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| #!/bin/bash                 | esta parte que se situa normalmente en la parte superiro de los scripts , indica con que se debe ejecutar el script, su nombre es \<\<shebang>> |
+|                             |                                                                                                                                                 |
+
+
+### Variantes de CompresiÃ³n
+| Nombre   | Informacion                                                   |
+| -------- | ------------------------------------------------------------- |
+| LossLess | Sin pÃ©rdida (puede ser descomprimida en su forma original)    |
+| lossy    | Con pÃ©rdida (los datos comprimidos no pueden ser recuperados) |
+|          |                                                               |
+
+:S_DIRECTORIOS
+## Directorios 
+1. /proc     : Es un seudo sistema de archivos ubicado en la memoria de la computaddora. (contiene un subdirectorio por cada proceso que esta presente en el sistema.) ;  tambien contiene la informaiÃ³n acerca de su hardware en los archivos como /proc/cpuinfo , /proc/meminfo y /proc/devices.
+2. /prco/sys : Contiene los seudo archivos que se pueden utilizar par alternar la configuraciÃ³n del kernel en ejecuciÃ³n .                                                           
+:S_DIRECTORIOS
+## Administracion de el sistema
+
+:S.GROUPMOD
+### Groupmod
+| Flag | Utilidad                                                                                          |
+| ---- | ------------------------------------------------------------------------------------------------- |
+| -n   | sirve para cambiar el mombre de el grupo indicado                                                 |
+| -g   | Sirve para camibar el GID de el grupo indicado                                                    |
+:S.GROUPMOD
+
+:S.USERMOD
+### Usermod
+| Flag | Utildiad                                                                                     |
+| ---- | -------------------------------------------------------------------------------------------- |
+| -G   | Tiene una lista separada por comas de todos los grupos a los que pertenece el usuario        |
+| -a   | Sirve para crear un nuevo grupo y aÃ±adirlo como miembro a los grupos secundarios esxistentes |
+| -L   | Sive para bloquear la cuenta y que no tenga acceso a el sistema                              |
+| -U   | Sirve para desbloquear una cuenta que a sido bloqueada                                       | 
+:S.UDERMOD
+
+:S.USERAD
+### Useradd
+| Flag | Utilidad                                         |
+| ---- | ------------------------------------------------ |
+| -m   | Sirve para crear un directorio home especificado |
+| -G   | Para indicar a el grupo que lo queremos aÃ±adir   | 
+:S.USERAD
+
+:S.COMPRESORES
+## Herramientas tÃ­picas
+### Compresion
+| Nombre | CompresiÃ³n             | DescompresiÃ³n        |
+| ------ | ---------------------- | -------------------- |
+| bzip2  | bzip2 bigfile2         | bunzip2 bigfile2.bz2 |
+| gzip   | gzip bigfile3          | gunzip bigfile3      |
+| xz     | xz bigfile4            | unxz bigfile4xz      |
+| tar    |                        | tar xf 3.1.tar       |
+| zip    | zip -r zipfile.zip dir | unzip zipfile.zip    |
+:S.COMPRESORES
+
+:S.VIM
+### Vim
+#### Modo VisualizaciÃ³n
+| Short Cut      | Utilidad                                                                   |
+| -------------- | -------------------------------------------------------------------------- |
+| j              | Mueve el cursos una lÃ­nea hacia abajo (Igual que la flecha hacia abajo)    |
+| k              | Mueve el cursor una lÃ­nea hacia arriba (Igual que la flecha hacia arriba)  |
+| l              | Mueve el cursor un cÃ¡racter a la derecha (igual que la flecha derecha)     |
+| h              | Mueve el cursor un carÃ¡cter a la izquierda (igual que la flecha izquierda) |
+| w              | Mueve el cursor al principio de la siguiente palabra                       |
+| e              | Mueve el cursor al final de le palabra                                     |
+| b              | Mueve el cursor al principio de la palabra anterior                        |
+| $              | Mueve el cursor al final de la linea actual (Igual que la tecla Fin)       |
+| 0              | Mueve el cursor al inicio de la lÃ­nea actual (Igual que la tecla Inicio)   |
+| 3G             | Salta a la tercera linea (nG salta a la enÃ©sima lÃ­nea)                     |
+| 1g             | Salta a la primera lÃ­nea                                                   |
+| **Shift+G**    | Salta a la Ãºltima lÃ­nea                                                    |
+| \<number(0)>dw | Delete word                                                                |
+| \<number(0)>dd | Elimina lÃ­nea actual                                                       |
+|                |                                                                            |
+|                |                                                                            |
+
+#### Metodos para salir
+| Comando | FunciÃ³n / Teclas                                                                |
+| ------- | ------------------------------------------------------------------------------- |
+| :x      | Se guarda y cierra el archivo                                                   |
+| :wq     | Escribe al archivo y se cierra                                                  |
+| :wq!    | Escribe a un archivo de sÃ³lo lectura , si es posible , y se cierra              |
+| ZZ      | Se guarda y se cierra. Observa que en este caso no se utilizan los dos puntos : |
+| :q!     | Salir sin guardar los cambios                                                   |
+| :e!     | Descartar los cambios y volver a cargar el archivo                              |
+| :w!     | Escribir a sÃ³lo lectura , si es posible                                         | 
+:S.VIM
+
+:S.GREP
+### grep
+| ParÃ¡metro       | Utilidad                                                                                                       | 
+| --------------- | -------------------------------------------------------------------------------------------------------------- | 
+| -i              | La bÃºsqueda no distingue mayÃºsculas o minÃºsculas                                                               | 
+| -r              | La bÃºsqueda es recursiva (busca en todos los ficheros dentro de un directorio especÃ­fico y sus subdirectorios) |  
+| -c              | La bÃºsqueda cuenta el nÃºmero de coincidencias                                                                  | 
+| -v              | Invertir la coincidencia para imprimir lÃ­neas que no concuerde con el tÃ©rmino de la bÃºsqueda                   |
+| -E              | Para leer carÃ¡cteres de expriÃ³n extendida (+)                                                                  | 
+| -E 'sshd\|root' | Sirve para poder usar las pipes a la hora de buscar , para poner mas de una palabra                            | 
+|                 |                                                                                                                |  
+:S.GREP
+
+:S.TAR
+### Tar
+| Flag | Utilidad                                                |
+| ---- | ------------------------------------------------------- |
+| -c   | Crear                                                   |
+| -v   | Verbose (indicame lo que estas haciendo)                |
+| -f   | Especificar Nombre de el archivo                        |
+| -t   | Lista el contenido                                      |
+| -z   | Crear archivo tar comprimido (utiliza la ayuda de gzip) |
+| -x   | Extraer                                                 |
+| -r   | AÃ±adir a un archivo empaquetaado existente              | 
+:S.TAR
+
+:S.ZIP
+### Zip
+| Flag     | Utilidad                                |
+| -------- | --------------------------------------- |
+| -r       | Recursividad                            |
+| unzip -l | Para ver el contenido de el archivo zip | 
+:S.ZIP
+
+:S.CUT
+### Cut
+| Flag | Utilidad                                          |
+| ---- | ------------------------------------------------- |
+| -d   | Indicamos el delimitador (cut -d: -f1 /etc/hosts) |
+| -f   | Indacamos el campo (cut -d: -f1 /etc/hosts)       | 
+:S.CUT
+
+:S.FIND
+### Find
+| Flag  | Utilidad                          |
+| ----- | --------------------------------- |
+| -size | Indicar tamaÃ±o                    |
+| -type | Indicar tipo                      |
+| -date | Indicar fecha                     |
+| -ls   | Lista los archivos y sus detalles | 
+:S.FIND
+
+:S.FREE
+### Free
+| Flag | Utilidad                                                       |
+| ---- | -------------------------------------------------------------- |
+| -m   | Muestra la cantidad de memoria en megabytes cuando utilizas -m |
+| -g   | Muestra la cantidad de memoria en gigabytes cuando utilizaz -g | 
+:S.FREE
+
+:S.LSPCI
+### lspci 
+| Flag | Utilidad                                                                                   |
+| ---- | ------------------------------------------------------------------------------------------ |
+| -k   | Para mostrar los dispositivos junto con el controlador del kernel y los mÃ³dulos utilizados | 
+:S.LSPCI
+
+:S.FDISK
+### fdisk
+| Flag | Utilidad                                                                                                                                 |
+| ---- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| -l   | El comando listrÃ¡ de manera no interactiva los dispositivos de bloque , que incluyen los discos (discos fÃ­sicos) y los volÃºmenes lÃ³gicos |
+| -u   | Muestra las unidades en sectores en vez de cilindros.                                                                                    |
+| -c   | Evita que el comando fdisk imprima las advertencias que afectan la compatibilidad con el sistema DOS                                     |
+
+> -  NOTA: El comando fsidk entra en un modo interactivo que normalmente se utiiliza para modificar las particiones en un dispositivo de disco	
+:S.FDISK
+
+:S.PERMISOS
+## Permisos
+| Nombre     | Id  | Utilidad                                                                                                                                                   |
+| ---------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sticky bit | 1   | Se usa sobre directorios , significa que los elementos que hay en ese directorio solo pueden ser renombrados o borrados por su propietario o bien por root |
+| Suid       | 4   | Significa que el que lo ejecute va a tener los mismos permisos que el que creÃ³ el archivo                                                                  |
+| Sgid       | 2   | Es lo mismo que Suid , pero a nivel de grupo    |
+:S.PERMISOS
